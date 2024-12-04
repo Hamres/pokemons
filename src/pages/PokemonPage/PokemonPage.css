@@ -1,0 +1,12 @@
+.wrapper {
+  @apply w-full pt-4 dark:bg-slate-800 dark:text-slate-300 h-full
+}
+
+:global body{
+  @apply dark:bg-slate-800 dark:text-slate-300
+}
+
+
+.krug {
+  @apply p-4 border-2 border-red-600 dark:border-green-700
+}

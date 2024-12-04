@@ -1,0 +1,32 @@
+.pokemons_container {
+  @apply flex flex-wrap justify-between
+}
+
+:global #root{
+  @apply dark:bg-slate-800 dark:text-slate-300
+}
+
+:global(.dark) .pokemon{
+  @apply bg-slate-600 shadow-md shadow-slate-700
+}
+
+
+.pokemon {
+  @apply flex px-8 py-5 shadow-lg rounded-xl w-[220px] h-[60px] m-[10px] capitalize justify-between items-center cursor-pointer
+}
+.pokemon_name{
+  @apply font-bold text-xl
+}
+
+.pokemon_container {
+  @apply flex flex-col relative items-center
+}
+
+.pokemon_info {
+  @apply absolute  z-10 bg-white w-[220px] rounded-2xl
+}
+
+/*card*/
+
+
+
