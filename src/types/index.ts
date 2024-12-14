@@ -1,3 +1,27 @@
+export type $TSFixMe = any
+
+export type User = {
+  city?: string
+  displayName: import('firebase/auth').User['displayName']
+  email: import('firebase/auth').User['email']
+  phoneNumber: import('firebase/auth').User['phoneNumber']
+  photoURL: import('firebase/auth').User['photoURL']
+  uid: import('firebase/auth').User['uid']
+  pokemons: {
+    name: PokemonType['name']
+    id: PokemonType['id']
+    image: PokemonType['sprites']['front_default']
+  }[]
+}
+export interface UserDocument extends User {}
+
+export interface PokemonDocument {
+  uid: User['uid']
+  name: PokemonType['name']
+  id: PokemonType['id']
+  displayName?: string
+}
+
 export type PageType = {
   pageParams: IPageParams[]
   pages: LastPageType[]
@@ -482,7 +506,7 @@ export interface IVersions {
 export interface IOther {
   dream_world: IDreamWorld
   home: IHome
-  "official-artwork": IOfficialArtwork
+  'official-artwork': IOfficialArtwork
   showdown: IShowdown
 }
 
@@ -502,7 +526,7 @@ export interface IOfficialArtwork {
 }
 
 export interface IHome {
-  front_default: string | null
+  front_default: string | undefined
   front_female: string | null
   front_shiny: string | null
   front_shiny_female: string | null

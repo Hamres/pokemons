@@ -1,2 +1,6 @@
-export {default as PokemonsPage} from './PokemonsPage/PokemonsPage'
-export {default as PokedexPage} from './PokedexPage/PokedexPage'
+export { default as PokemonsPage } from './PokemonsPage/PokemonsPage'
+export { default as PokedexPage } from './PokedexPage/PokedexPage'
+export { default as AuthPage } from './AuthPage/AuthPage'
+export { default as ProfilePage } from './ProfilePage/ProfilePage'
+export { default as PokemonPage } from './PokemonPage/PokemonPage'
+export { default as PokemonId } from './PokemonId/PokemonId'

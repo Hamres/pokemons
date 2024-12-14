@@ -1,6 +1,6 @@
 
 .desktop_header_container {
-  @apply hidden w-full md:block h-full
+  @apply w-full md:block h-full hidden
 }
 
 .desktop_header {

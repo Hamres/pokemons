@@ -1,29 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import 'rsuite/Toggle/styles/index.css';
-import { Toggle } from 'rsuite';
+import React, { useEffect, useState } from 'react'
+import 'rsuite/Toggle/styles/index.css'
+import { Toggle } from 'rsuite'
 
 const ToggleTheme = () => {
-  const [checked, setChecked] = useState(false);
-  console.log(checked);
+  const [checked, setChecked] = useState(false)
 
   useEffect(() => {
-    const htmlElement = document.querySelector('html')!;
+    const htmlElement = document.querySelector('html')!
 
     if (checked) {
-      htmlElement.classList.add('dark');
+      htmlElement.classList.add('dark')
     } else {
-      htmlElement.classList.remove('dark');
+      htmlElement.classList.remove('dark')
     }
-  }, [checked]);
+  }, [checked])
 
- return (
-  <>
-   <Toggle
-     checked={checked}
-     onChange={setChecked}
-   />
-  </>
- );
-};
+  return (
+    <>
+      <Toggle checked={checked} onChange={setChecked} />
+    </>
+  )
+}
 
-export default ToggleTheme;
+export default ToggleTheme

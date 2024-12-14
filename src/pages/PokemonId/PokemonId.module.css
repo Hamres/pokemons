@@ -1,0 +1,11 @@
+.container {
+  @apply justify-center items-center;
+}
+
+.pokemonCard {
+  @apply border-amber-700 h-[300px] border-[1px] mr-4 flex flex-col justify-center items-center rounded-lg shadow-md;
+}
+
+.img_container {
+  @apply h-[150px] w-[150px];
+}

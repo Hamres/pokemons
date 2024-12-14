@@ -1,0 +1,19 @@
+.page {
+  @apply flex justify-center items-center  mt-[30px];
+}
+
+.aboutUser {
+  @apply flex flex-col justify-center items-center;
+}
+
+.team {
+  @apply flex flex-col justify-center items-center mt-[30px];
+}
+
+.teamCard {
+  @apply justify-center items-center flex-wrap flex mt-[10px];
+}
+
+.logoutButton {
+  @apply py-3 px-2 mt-4 bg-red-500 rounded-lg w-48 flex justify-center items-center hover:scale-[1.02] shadow-md;
+}

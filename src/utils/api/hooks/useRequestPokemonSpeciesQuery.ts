@@ -1,10 +1,9 @@
-
-import { PokemonType } from '../../../types';
-import { useQuery } from 'react-query';
-import { requestPokemonSpecies } from '../request/pokemon-species/id';
+import { PokemonType } from '../../../types'
+import { useQuery } from '@tanstack/react-query'
+import { requestPokemonSpecies } from '../request/pokemon-species/id'
 
 interface UseRequestPokemonSpeciesQueryParams {
-  id: PokemonType['id'];
+  id: PokemonType['id']
 }
 
 export const useRequestPokemonSpeciesQuery = (
@@ -15,4 +14,4 @@ export const useRequestPokemonSpeciesQuery = (
     ['pokemon-species', params.id],
     () => requestPokemonSpecies({ params, ...(settings?.config && { config: settings.config }) }),
     settings?.options && settings.options
-  );
+  )

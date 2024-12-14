@@ -1,21 +1,20 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState } from 'react'
 import styles from './PokedexPage.module.css'
-import classNames from 'classnames';
-import { PokemonType } from '../../types';
-import { useRequestPokemonsQueries } from '../../utils/api/hooks';
-import { getPokemonId } from '../../utils/helpers/getPokemonId';
+import classNames from 'classnames'
+import { PokemonType } from '../../types'
+import { useRequestPokemonsQueries } from '../../utils/api/hooks'
+import { getPokemonId } from '../../utils/helpers'
 
 const PokedexPage: FC = () => {
-  const [offset, setOffset] = useState(6);
-  const [selectedPokemonId, setSelectedPokemonId] = useState(1);
-  const results = useRequestPokemonsQueries({ offset });
-  const isLoading = results.some((result: any) => result.isLoading);
+  const [offset] = useState(6)
+  const [selectedPokemonId, setSelectedPokemonId] = useState(1)
+  const results = useRequestPokemonsQueries({ offset })
+  const isLoading = results.some((result: any) => result.isLoading)
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>
 
-  const pokemons: PokemonType[] = results.map((result: any) => (result.data.data))
+  const pokemons: PokemonType[] = results.map((result: any) => result.data.data)
   const selectedPokemon = pokemons.find((pokemon) => selectedPokemonId === pokemon.id)
-
 
   if (!selectedPokemon) return <div>Error</div>
 
@@ -32,45 +31,39 @@ const PokedexPage: FC = () => {
               <div className={styles.card_top_name__id}>{getPokemonId(selectedPokemon.id)}</div>
             </div>
             <div className={styles.card_top_image}>
-              <img src={selectedPokemon.sprites.other.home.front_default ?? ''} alt="pokemon" />
+              <img src={selectedPokemon.sprites.other.home.front_default} alt='pokemon' />
             </div>
           </div>
           <div className={styles.card_bottom}>
             <div className={styles.card_bottom_status}>
               <span className={styles.card_bottom_span}>Stats</span>
               <div>
-                {
-                  pokemonStats.map((stat) => {
-                    return <p
-                      className={styles.card_bottom_p}
-                      key={stat.stat.url}
-                    >
+                {pokemonStats.map((stat) => {
+                  return (
+                    <p className={styles.card_bottom_p} key={stat.stat.url}>
                       {stat.stat.name}: {stat.base_stat}
                     </p>
-                  })
-                }
+                  )
+                })}
               </div>
             </div>
             <div className={styles.card_bottom_habilidades}>
               <span className={styles.card_bottom_span}>Abilities</span>
               <div>
-                {
-                  pokemonAbilities.map((el) => {
-                    return <p
-                      className={styles.card_bottom_p}
-                      key={el.ability.url}
-                    >
+                {pokemonAbilities.map((el) => {
+                  return (
+                    <p className={styles.card_bottom_p} key={el.ability.url}>
                       {el.ability.name}
                     </p>
-                  })
-                }
+                  )
+                })}
               </div>
             </div>
           </div>
         </div>
         <ul className={styles.list}>
           {pokemons.map((pokemon) => {
-            const isActive = selectedPokemonId === pokemon.id;
+            const isActive = selectedPokemonId === pokemon.id
 
             return (
               <li
@@ -80,7 +73,7 @@ const PokedexPage: FC = () => {
                 onKeyPress={(event) => {
                   if (event.key === 'Enter') {
                     // event.preventDefault()
-                    setSelectedPokemonId(pokemon.id);
+                    setSelectedPokemonId(pokemon.id)
                   }
                 }}
                 key={pokemon.name}
@@ -97,12 +90,12 @@ const PokedexPage: FC = () => {
                 />
                 <span className={styles.pokemon_item_span}>{pokemon.name}</span>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PokedexPage;
+export default PokedexPage

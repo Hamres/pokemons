@@ -1,0 +1,15 @@
+.page {
+  @apply flex justify-center items-center mt-[80px] flex-col;
+}
+
+.loginButton {
+  @apply py-3 px-2 mt-4 bg-danger-100 rounded-lg w-72 flex justify-center items-center hover:scale-[1.02] shadow-md;
+}
+
+:global(.dark) .loginButton {
+  @apply bg-pink-300 text-slate-700;
+}
+
+.page p {
+  @apply text-red;
+}

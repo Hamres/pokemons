@@ -1,12 +1,23 @@
 .wrapper {
-  @apply w-full pt-4 dark:bg-slate-800 dark:text-slate-300 h-full
+  @apply w-full pt-4 dark:bg-slate-800 dark:text-slate-300 h-full;
 }
 
-:global body{
-  @apply dark:bg-slate-800 dark:text-slate-300
+:global body {
+  @apply dark:bg-slate-800 dark:text-slate-300;
 }
 
+.pokemonCard {
+  @apply flex justify-center items-center flex-col;
+}
 
-.krug {
-  @apply p-4 border-2 border-red-600 dark:border-green-700
+.backButton {
+  @apply p-2 w-28 ring-1 mb-5 ring-[#86868b] bg-green-600 m-auto rounded-lg  hover:scale-[1.02] shadow-md;
+}
+
+:global(.dark) .backButton {
+  @apply bg-black text-slate-400 ring-black;
+}
+
+.pokemonImg {
+  @apply w-[150px] h-[150px] mb-10;
 }

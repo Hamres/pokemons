@@ -1,0 +1,20 @@
+.sign_in_form {
+  @apply flex flex-col gap-2;
+}
+
+.signInButton {
+  @apply py-3 px-2 mt-4 bg-pink-300 rounded-lg w-full flex justify-center items-center hover:scale-[1.02] shadow-md;
+}
+
+:global(.dark) .signInButton {
+  @apply bg-pink-500 text-slate-700;
+}
+
+.title {
+  @apply text-3xl font-semibold mb-4;
+}
+
+.googleButton {
+  @apply py-3 px-2 mt-4 w-72 ring-1 ring-[#86868b] rounded-lg flex justify-center items-center hover:scale-[1.02] shadow-md;
+  @apply bg-[url('../../../../assets/google.svg')] bg-no-repeat bg-[length:35px_35px] bg-[1%];
+}

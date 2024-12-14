@@ -1,7 +1,7 @@
-import { useInfiniteQuery } from 'react-query';
-import { requestPokemons } from '../request/pokemon';
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { requestPokemons } from '../request/pokemon'
 
-const REQUEST_POKEMONS_LIMIT = 50;
+const REQUEST_POKEMONS_LIMIT = 50
 export const useRequestPokemonInfiniteQuery = (
   settings?: RequestInfinityQuerySettings<typeof requestPokemons>
 ) =>
@@ -15,10 +15,10 @@ export const useRequestPokemonInfiniteQuery = (
     {
       ...(settings?.options && settings.options),
       getNextPageParam: (lastPokemonsData, allPokemonsData) => {
-        const pokemonsCount = allPokemonsData.length * REQUEST_POKEMONS_LIMIT;
+        const pokemonsCount = allPokemonsData.length * REQUEST_POKEMONS_LIMIT
 
-        const hasNextPage = pokemonsCount < lastPokemonsData.data.count;
-        if (hasNextPage) return pokemonsCount;
+        const hasNextPage = pokemonsCount < lastPokemonsData.data.count
+        if (hasNextPage) return pokemonsCount
       }
     }
-  );
+  )

@@ -1,9 +1,8 @@
-import { requestPokemonById } from '../request';
-import { useQuery } from 'react-query';
-
+import { requestPokemonById } from '../request'
+import { useQuery } from '@tanstack/react-query'
 
 interface UseRequestPokemonQueryByIdParams {
-  id: number;
+  id: number
 }
 
 export const useRequestPokemonByIdQuery = (
@@ -14,4 +13,4 @@ export const useRequestPokemonByIdQuery = (
     ['pokemon', params.id],
     () => requestPokemonById({ params, ...(settings?.config && { config: settings.config }) }),
     settings?.options && settings.options
-  );
+  )

@@ -1,0 +1,16 @@
+.input {
+  @apply py-3 px-2 rounded-lg w-full shadow-md border-[1px] border-[#86868b] outline-none;
+  @apply focus:border-[#0071e3];
+}
+
+:global(.dark) .input {
+  @apply bg-zinc-400 text-slate-700;
+}
+
+.span {
+  @apply opacity-[0.8];
+}
+
+.input_error {
+  @apply bg-red-100  border-red-500  focus:border-red-600;
+}

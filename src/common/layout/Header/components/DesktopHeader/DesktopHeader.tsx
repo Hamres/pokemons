@@ -1,12 +1,9 @@
+import { Link } from 'react-router-dom'
 
-import { Link } from 'react-router-dom';
-
-
-import styles from './DesktopHeader.module.css';
-import { ROUTES } from '../../../../../utils/constants';
+import styles from './DesktopHeader.module.css'
+import { ROUTES } from '../../../../../utils/constants'
 
 export const DesktopHeader = () => {
-
   return (
     <div className={styles.desktop_header_container}>
       <div className={styles.desktop_header}>
@@ -22,8 +19,7 @@ export const DesktopHeader = () => {
             </ul>
           </nav>
         </div>
-
       </div>
     </div>
-  );
-};
+  )
+}

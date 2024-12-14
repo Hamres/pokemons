@@ -1,0 +1,15 @@
+.sign_up_form {
+  @apply flex flex-col gap-2;
+}
+
+.sign_up_form button {
+  @apply py-3 px-2 mt-4 bg-pink-300 rounded-lg w-full flex justify-center items-center hover:scale-[1.02] shadow-md;
+}
+
+:global(.dark) .sign_up_form button {
+  @apply bg-pink-500 text-slate-700;
+}
+
+.title {
+  @apply text-3xl font-semibold mb-4;
+}

@@ -1,13 +1,10 @@
-
 .header {
-  @apply sticky top-0 z-[1000]  w-full bg-white px-7 py-4 shadow-md
+  @apply sticky top-0 z-[1000] w-full bg-white px-7 py-4 shadow-md
 }
 
 :global(.dark) .header{
   @apply bg-zinc-600 text-slate-300
 }
-
-
 
 .header_container {
   @apply container flex justify-between px-4;
@@ -16,7 +13,6 @@
 .header_left {
   @apply flex items-center justify-center gap-6;
 }
-
 
 .header_quote {
   @apply text-base font-light;

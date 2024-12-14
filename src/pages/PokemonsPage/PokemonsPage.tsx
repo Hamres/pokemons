@@ -1,45 +1,45 @@
-import React, { FC, useEffect, useState } from 'react';
-import { ILastResults, PokemonType } from '../../types';
-import { useInView } from 'react-intersection-observer';
+import React, { FC, useEffect, useRef, useState } from 'react'
+import { ILastResults, PokemonType } from '../../types'
 
-import styles from './PokemonsPage.module.css';
-import { useRequestPokemonByIdQuery, useRequestPokemonInfiniteQuery } from '../../utils/api/hooks';
-import { getPokemonId } from '../../utils/helpers/getPokemonId';
-import { useNavigate } from 'react-router';
-import { PokemonInfo } from './PokemonInfo/PokemonInfo';
+import styles from './PokemonsPage.module.css'
+import { useRequestPokemonInfiniteQuery } from '../../utils/api/hooks'
+import { getPokemonId } from '../../utils/helpers/getPokemonId'
+import { PokemonInfo } from './PokemonInfo/PokemonInfo'
+import { useInView } from '../../utils/hooks'
 
 const PokemonsPage: FC = () => {
-  const navigate = useNavigate()
-  const [pokemonId, setPokemonId] = useState<PokemonType['id'] | null>(null);
-  const { ref, inView } = useInView();
-  const { data, fetchNextPage, isLoading } = useRequestPokemonInfiniteQuery({});
+  const [pokemonId, setPokemonId] = useState<PokemonType['id'] | null>(null)
+  const { data, fetchNextPage, isLoading } = useRequestPokemonInfiniteQuery({})
+
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref)
 
   useEffect(() => {
-    if (inView) {
-      fetchNextPage();
+    if (isInView) {
+      fetchNextPage()
     }
-  }, [inView]);
+  }, [isInView])
 
-  if (isLoading || !data) return <div>Loading...</div>;
+  if (isLoading || !data) return <div>Loading...</div>
 
   const pokemons: ILastResults[] = data.pages.reduce(
     (pokemons: ILastResults[], { data }) => [...pokemons, ...data.results],
     []
-  );
+  )
 
   return (
     <div className='container'>
       <div className={styles.pokemons_container}>
         {pokemons.map((pokemon, index) => {
-          const id = index + 1;
+          const id = index + 1
 
           return (
             <div
               key={index}
               className={styles.pokemon_container}
               onClick={() => {
-                if(pokemonId === id ) {
-                  return navigate(`/pokemon/${id}`)
+                if (pokemonId === id) {
+                  return id
                 }
                 setPokemonId(id)
               }}
@@ -50,16 +50,16 @@ const PokemonsPage: FC = () => {
               </div>
               {pokemonId === id && (
                 <div className={styles.pokemon_info}>
-                  <PokemonInfo id={id} />
+                  <PokemonInfo id={id} onClose={() => setPokemonId(null)} />
                 </div>
               )}
             </div>
-          );
+          )
         })}
         <div ref={ref} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PokemonsPage;
+export default PokemonsPage
