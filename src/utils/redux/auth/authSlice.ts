@@ -22,13 +22,8 @@ const authSlice = createSlice({
     setLogin: (state) => {
       state.session.isLoginIn = true
     },
-    // setStore: (state, action: PayloadAction<any>) => {
-    //   state.session.isLoginIn = action.payload.session
-    //   state.user = action.payload.user
-    // },
     setLogout: (state) => {
       state.session.isLoginIn = false
-      // state.user = {} as User
     }
   }
 })
