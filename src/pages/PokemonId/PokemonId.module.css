@@ -9,3 +9,7 @@
 .img_container {
   @apply h-[150px] w-[150px];
 }
+
+.deleteButton {
+  @apply p-2 w-28  mb-5  bg-red-500 m-auto rounded-lg  hover:scale-[1.02] shadow-md;
+}

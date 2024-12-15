@@ -8,9 +8,10 @@ import { getPokemonId } from '../../utils/helpers'
 interface PokemonEvolutionChainProps {
   chainId: number
   pokemonName: PokemonType['name']
+  handleButton: (chainId: number) => void
 }
 
-const PokemonId: React.FC<PokemonEvolutionChainProps> = ({ chainId: chainId }) => {
+const PokemonId: React.FC<PokemonEvolutionChainProps> = ({ chainId: chainId, handleButton }) => {
   const { data: pokemonData, isLoading: pokemonIdLoading } = useRequestPokemonByIdQuery({
     id: chainId
   })
@@ -32,6 +33,9 @@ const PokemonId: React.FC<PokemonEvolutionChainProps> = ({ chainId: chainId }) =
               alt='pokemon img'
             />
           </div>
+          <button className={styles.deleteButton} onClick={() => handleButton(chainId)}>
+            Delete
+          </button>
         </div>
       )}
     </div>
